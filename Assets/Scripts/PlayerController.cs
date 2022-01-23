@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float _jumpForce;
     private Vector3 velocity = Vector3.zero;
 
-    private void FixedUpdate()
+    private void Update()
     {
         MovePlayer();
     }
@@ -25,11 +25,11 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        // float h = Input.GetAxis("Horizontal") * _speed;
-        // _rb.velocity = new Vector2 (h, _rb.velocity.y);
-        // Vector3 movement = new Vector3(h, )
+        float h = Input.GetAxis("Horizontal") * _speed;
+        _rb.velocity = new Vector2 (h, _rb.velocity.y);
+        
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetButtonDown("Jump"))
         {
             _rb.AddForce(new Vector3 (0f, _jumpForce, 0f));
         }
